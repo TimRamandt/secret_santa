@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Secret_Santa.SubWindows"
         mc:Ignorable="d"
-        Title="Secret Santa App (List)" Height="370" Width="500">
+        Title="Secret Santa App (List)" Height="387.479" Width="507.479">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="230" Margin="10,21,0,0" VerticalAlignment="Top" Width="232">
+        <Grid HorizontalAlignment="Left" Height="230" Margin="10,43,0,0" VerticalAlignment="Top" Width="232">
+            <Border BorderBrush="Black" BorderThickness="1"></Border>
             <Label Content="Add people" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="53,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
             <TextBox HorizontalAlignment="Left" Height="25" Margin="53,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
@@ -16,11 +17,19 @@
             <Label Content="E-mail" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.109"/>
         </Grid>
 
-        <Button Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="205,288,0,-0.2" Height="33" Click="StartGame_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="167,262,0,0" TextWrapping="Wrap" Text="This will start a secret santa session." VerticalAlignment="Top" Width="194" Height="21"/>
-        <Grid HorizontalAlignment="Left" Height="230" Margin="252,21,0,0" VerticalAlignment="Top" Width="232">
+        <Button Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="205,310,0,0" Height="33" Click="StartGame_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="150,284,0,0" TextWrapping="Wrap" Text="This will start a secret santa session." VerticalAlignment="Top" Width="194" Height="21"/>
+        <Grid HorizontalAlignment="Left" Height="230" Margin="252,43,0,0" VerticalAlignment="Top" Width="232">
+            <Border BorderBrush="Black" BorderThickness="1"></Border>
             <Label Content="Overview" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14"/>
         </Grid>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="167,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154"/>
+        <Label Content="Name of the list:" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="28" Width="108"/>
+        <Button HorizontalAlignment="Left" Margin="446,10,0,0" VerticalAlignment="Top" Width="38" Height="30" Background="White" Click="Save_Click">
+            <Image Source="pack://application:,,,/Resources/saveIcon.png" />
+        </Button>
+
+
 
     </Grid>
 </Window>

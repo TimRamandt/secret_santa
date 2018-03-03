@@ -1,4 +1,5 @@
 ﻿using Logic.Data;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,16 @@ namespace Secret_Santa.SubWindows {
         {
             var mailingWindow = new Mailing();
             mailingWindow.Show();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.dataFile.Path == null) {
+                var saveDialog = new SaveFileDialog();
+                saveDialog.ShowDialog();
+                dataFile.Path = saveDialog.FileName;
+            }
+            this.dataFile.SaveData();
         }
     }
 }
