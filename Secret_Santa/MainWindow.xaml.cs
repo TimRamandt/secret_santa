@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Logic.Data;
+using Secret_Santa.SubWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +23,18 @@ namespace Secret_Santa {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void NewList(object sender, RoutedEventArgs e)
+        {
+            var window = new ListManagement(new DataFile());
+            window.Show();
+            this.Close();
+        }
+
+        private void ExistingList(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

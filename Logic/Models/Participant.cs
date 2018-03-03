@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Logic.Models {
-    class Participant {
+    public class Participant {
 
         public string Name { get; set; }
         public string Email { get; set; }

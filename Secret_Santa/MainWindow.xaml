@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Secret_Santa"
         mc:Ignorable="d"
-        Title="Secret Santa" Height="350" Width="525">
+        Title="Secret Santa" Height="275" Width="200">
     <Grid>
-        
+        <Label Content="Secret Santa App" HorizontalAlignment="Left" Margin="0,10,-0.4,0" VerticalAlignment="Top" FontSize="18" FontWeight="DemiBold" Width="194" HorizontalContentAlignment="Center"/>
+
+
+        <Button Content="Create New List" HorizontalAlignment="Left" Margin="20,163,0,0" VerticalAlignment="Top" Width="150" Height="33" Background="OrangeRed" Click="NewList"/>
+        <Button Content="Load Existing List" HorizontalAlignment="Left" Margin="20,88,0,0" VerticalAlignment="Top" Width="150" Height="33" Background="MediumSpringGreen" Click="ExistingList"/>
+
     </Grid>
 </Window>
