@@ -1,4 +1,5 @@
 ﻿using Logic.Data;
+using Logic.Models;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,60 @@ namespace Secret_Santa.SubWindows {
                 dataFile.Path = saveDialog.FileName;
             }
             this.dataFile.SaveData();
+        }
+
+        private void AddPerson_Click(object sender, RoutedEventArgs e)
+        {
+            this.ResetTextBox(txtName);
+            this.ResetTextBox(txtEmail);
+            lblErrorAdd.Content = string.Empty;
+
+            bool valid = true;
+            var name = txtName.Text;
+            if(string.IsNullOrEmpty(name)) {
+                this.InvalidInputGUI(txtName, lblErrorAdd, "Name can not be empty.");
+                valid = false;
+            }
+
+            if(this.dataFile.Participants.Any(p => p.Name == name))
+            {
+                this.InvalidInputGUI(txtName, lblErrorAdd, $"{name} is already registered.");
+                valid = false;
+            }
+
+            var email = txtEmail.Text;
+            if (!FileParser.ValidEmailAddress(email)) {
+                this.InvalidInputGUI(txtEmail, lblErrorAdd, "Invalid e-mail.");
+                valid = false;
+            }
+
+            if(this.dataFile.Participants.Any(p => p.Email == email))
+            {
+                this.InvalidInputGUI(txtEmail, lblErrorAdd, $"{email} is already registered.");
+                valid = false;
+            }
+
+            if (valid) {
+                this.dataFile.AddParticipant(new Participant() {
+                    Name = name,
+                    Email = email
+                });
+                txtEmail.Clear();
+                txtName.Clear();
+            }
+        }
+
+
+        private void InvalidInputGUI(TextBox textBox, Label errorLabel, string errorText)
+        {
+            textBox.Background = Brushes.LightPink;
+            errorLabel.Content += errorText + '\n';
+            textBox.Clear();
+        }
+
+        private void ResetTextBox(TextBox textBox)
+        {
+            textBox.Background = Brushes.White;
         }
     }
 }

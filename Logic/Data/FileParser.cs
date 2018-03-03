@@ -54,7 +54,23 @@ namespace Logic.Data {
         private static string DetermineEmail(string line)
         {
             int length = line.IndexOf(">") - line.IndexOf("<") -1;
+            if(length <= -1) {
+                throw new Exception("No e-mail adress found!");
+            }
             return line.Substring((line.IndexOf("<")+1),length);
+        }
+
+        public static bool ValidEmailAddress(string emailAddress)
+        {
+            if (!emailAddress.Contains("@")) {
+                return false;
+            }
+
+            if (!emailAddress.Split('@')[1].Contains('.')) {
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -18,7 +18,14 @@ namespace Logic.Data {
             this.Path = path;
         }
 
-        public DataFile() { }
+        public DataFile() {
+            this.Participants = new ParticipantList();
+        }
+
+        public void AddParticipant(Participant participant)
+        {
+            this.Participants.Add(participant);
+        }
 
         public void ReadData()
         {

@@ -8,11 +8,13 @@
         Title="Secret Santa App (List)" Height="387.479" Width="507.479">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="230" Margin="10,43,0,0" VerticalAlignment="Top" Width="232">
-            <Border BorderBrush="Black" BorderThickness="1"></Border>
+            <Border BorderBrush="Black" BorderThickness="1">
+                <Label Name="lblErrorAdd" Content="" Margin="9.2,154.2,9.2,22.6" Foreground="Red"/>
+            </Border>
             <Label Content="Add people" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="53,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
-            <TextBox HorizontalAlignment="Left" Height="25" Margin="53,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
-            <Button Content="Add" HorizontalAlignment="Left" Margin="147,127,0,0" VerticalAlignment="Top" Width="75"/>
+            <TextBox Name="txtName" HorizontalAlignment="Left" Height="23" Margin="53,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
+            <TextBox Name="txtEmail" HorizontalAlignment="Left" Height="25" Margin="53,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
+            <Button Content="Add" HorizontalAlignment="Left" Margin="147,127,0,0" VerticalAlignment="Top" Width="75" Click="AddPerson_Click"/>
             <Label Content="Name" HorizontalAlignment="Left" Margin="11,44,0,0" VerticalAlignment="Top"/>
             <Label Content="E-mail" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.109"/>
         </Grid>
