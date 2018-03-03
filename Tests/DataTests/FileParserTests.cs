@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Logic.Data;
+using Logic.Models;
 
 namespace Tests.DataTests {
     [TestClass]
@@ -22,6 +23,30 @@ Bart <bartje@gmail.com>";
             Assert.AreEqual(list[1].Name, "Tom");
             Assert.AreEqual(list[1].Email, "another@Email.com");
             
+        }
+
+        [TestMethod]
+        public void TestParseToText()
+        {
+            var list = new ParticipantList();
+            list.Name = "ToText";
+
+            list.Add(new Participant() {
+                Name = "Tim",
+                Email = "some@email.com"
+            });
+            list.Add(new Participant() {
+                Name = "Tom",
+                Email = "email@email.com"
+            });
+
+            string expected =
+@"Name: ToText 
+Tim <some@email.com> 
+Tom <email@email.com> 
+" ;
+
+            Assert.AreEqual(expected,FileParser.ParseToText(list));
         }
 
 

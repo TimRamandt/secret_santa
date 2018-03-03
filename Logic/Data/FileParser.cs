@@ -39,6 +39,18 @@ namespace Logic.Data {
             return list;
         }
 
+        public static string ParseToText(ParticipantList participants)
+        {
+            string text = $"Name: {participants.Name} \r\n";
+            foreach (var participant in participants)
+            {
+                text += $"{participant.Name} <{participant.Email}> \r\n";
+            }
+
+            return text;
+        }
+
+
         private static string DetermineEmail(string line)
         {
             int length = line.IndexOf(">") - line.IndexOf("<") -1;

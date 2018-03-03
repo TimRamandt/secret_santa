@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DataLoader.cs" />
+    <Compile Include="Data\DataFile.cs" />
     <Compile Include="Data\FileParser.cs" />
     <Compile Include="Logic\Game\Game.cs" />
     <Compile Include="Models\ParticipantList.cs" />
