@@ -7,29 +7,30 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Logic.Data {
-    class DataFile {
-        private string path;
+    public class DataFile {
+        public string Path { get; set; }
         private string content;
 
         public ParticipantList Participants { get; private set; }
         
         public DataFile(string path)
         {
-            this.path = path;
+            this.Path = path;
         }
+
+        public DataFile() { }
 
         public void ReadData()
         {
-            this.content = File.ReadAllText(this.path);
+            this.content = File.ReadAllText(this.Path);
             this.Participants = FileParser.ParseList(this.content);
         }
 
         public void SaveData()
         {
             this.content = FileParser.ParseToText(this.Participants);
-            File.WriteAllText(this.path, this.content);
+            File.WriteAllText(this.Path, this.content);
         }
-
 
     }
 }
