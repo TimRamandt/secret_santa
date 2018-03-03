@@ -1,4 +1,5 @@
 ﻿using Logic.Data;
+using Microsoft.Win32;
 using Secret_Santa.SubWindows;
 using System;
 using System.Collections.Generic;
@@ -27,14 +28,22 @@ namespace Secret_Santa {
 
         private void NewList(object sender, RoutedEventArgs e)
         {
-            var window = new ListManagement(new DataFile());
-            window.Show();
-            this.Close();
+            this.OpenListManagement();
         }
 
         private void ExistingList(object sender, RoutedEventArgs e)
         {
+            var fileDialog = new OpenFileDialog();
+            fileDialog.ShowDialog();
+            this.OpenListManagement(fileDialog.FileName);
+        }
 
+        private void OpenListManagement(string filePath = "")
+        {
+            var window = (filePath == "") ? 
+                new ListManagement(new DataFile()) : new ListManagement(new DataFile(filePath)); 
+            window.Show();
+            this.Close();
         }
     }
 }
