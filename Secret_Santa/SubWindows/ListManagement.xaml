@@ -16,7 +16,7 @@
             <Label Content="E-mail" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.109"/>
         </Grid>
 
-        <Button Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="205,288,0,-0.2" Height="33" Click="Button_Click"/>
+        <Button Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="205,288,0,-0.2" Height="33" Click="StartGame_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="167,262,0,0" TextWrapping="Wrap" Text="This will start a secret santa session." VerticalAlignment="Top" Width="194" Height="21"/>
         <Grid HorizontalAlignment="Left" Height="230" Margin="252,21,0,0" VerticalAlignment="Top" Width="232">
             <Label Content="Overview" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14"/>

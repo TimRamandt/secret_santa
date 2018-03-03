@@ -1,0 +1,18 @@
+﻿<Window x:Class="Secret_Santa.SubWindows.Mailing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Secret_Santa.SubWindows"
+        mc:Ignorable="d"
+        Title="Mailing" Height="320" Width="276.731">
+    <Grid>
+        <Label Content="Send mails to participants" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Subject" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,56,0,0"/>
+        <Label Content="Mail Message" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,82,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="74,59,0,0" TextWrapping="Wrap" Text="Secret Santa" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="143" Margin="10,108,0,0" TextWrapping="Wrap" Text="Hello {participant},&#xD;&#xA;&#xD;&#xA;You're the secret santa for {person}.&#xD;&#xA;&#xD;&#xA;Good luck,&#xD;&#xA;Secret Santa App. " VerticalAlignment="Top" Width="246"/>
+        <Button Content="Send" HorizontalAlignment="Left" Margin="181,256,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

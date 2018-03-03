@@ -1,5 +1,4 @@
-﻿using Logic.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,21 +14,12 @@ using System.Windows.Shapes;
 
 namespace Secret_Santa.SubWindows {
     /// <summary>
-    /// Interaction logic for ListManagement.xaml
+    /// Interaction logic for Mailing.xaml
     /// </summary>
-    public partial class ListManagement : Window {
-
-        private DataFile dataFile; 
-        public ListManagement(DataFile dataFile)
+    public partial class Mailing : Window {
+        public Mailing()
         {
-            this.dataFile = dataFile;
             InitializeComponent();
-        }
-
-        private void StartGame_Click(object sender, RoutedEventArgs e)
-        {
-            var mailingWindow = new Mailing();
-            mailingWindow.Show();
         }
     }
 }
