@@ -25,11 +25,12 @@
             <Border BorderBrush="Black" BorderThickness="1"></Border>
             <Label Content="Overview" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14"/>
         </Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="167,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154"/>
+        <TextBox Name="txtNameList" HorizontalAlignment="Left" Height="23" Margin="167,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154"/>
         <Label Content="Name of the list:" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="28" Width="108"/>
         <Button HorizontalAlignment="Left" Margin="446,10,0,0" VerticalAlignment="Top" Width="38" Height="30" Background="White" Click="Save_Click">
             <Image Source="pack://application:,,,/Resources/saveIcon.png" />
         </Button>
+        <Label Name="lblErrorName" Content="" HorizontalAlignment="Left" Margin="326,12,0,0" VerticalAlignment="Top" Width="115" Foreground="Red"/>
 
 
 

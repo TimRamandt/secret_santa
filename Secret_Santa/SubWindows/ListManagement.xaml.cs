@@ -36,6 +36,15 @@ namespace Secret_Santa.SubWindows {
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            var nameList = txtNameList.Text;
+            if (string.IsNullOrWhiteSpace(nameList)) {
+                this.InvalidInputGUI(txtNameList, lblErrorName, "Missing name");
+                return;
+            }
+
+            this.ResetTextBox(txtNameList);
+            lblErrorName.Content = "";
+
             if (this.dataFile.Path == null) {
                 var saveDialog = new SaveFileDialog();
                 saveDialog.ShowDialog();
