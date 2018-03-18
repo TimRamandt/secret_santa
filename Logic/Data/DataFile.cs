@@ -16,6 +16,7 @@ namespace Logic.Data {
         public DataFile(string path)
         {
             this.Path = path;
+            this.ReadData();
         }
         
         public DataFile() {

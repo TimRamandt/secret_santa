@@ -26,6 +26,11 @@ namespace Secret_Santa.SubWindows {
         {
             this.dataFile = dataFile;
             InitializeComponent();
+
+            if (!string.IsNullOrEmpty(this.dataFile.Participants.Name)) {
+                this.txtNameList.Text = this.dataFile.Participants.Name;
+            }
+
             this.lstParticipants.ItemsSource = this.dataFile.Participants;
         }
 
