@@ -26,6 +26,7 @@ namespace Secret_Santa.SubWindows {
         {
             this.dataFile = dataFile;
             InitializeComponent();
+            this.lstParticipants.ItemsSource = this.dataFile.Participants;
         }
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
@@ -105,6 +106,20 @@ namespace Secret_Santa.SubWindows {
         private void ResetTextBox(TextBox textBox)
         {
             textBox.Background = Brushes.White;
+        }
+        
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btwRemove_Click(object sender, RoutedEventArgs e)
+        {
+            var participant = lstParticipants.SelectedItem as Participant;
+            if (participant == null) return;
+
+            this.dataFile.RemoveParticipant(participant);
+            
         }
     }
 }

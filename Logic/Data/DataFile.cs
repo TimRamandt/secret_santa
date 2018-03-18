@@ -27,6 +27,11 @@ namespace Logic.Data {
             this.Participants.Add(participant);
         }
 
+        public void RemoveParticipant(Participant participant)
+        {
+            this.Participants.Remove(participant);
+        }
+
         public void ReadData()
         {
             this.content = File.ReadAllText(this.Path);
