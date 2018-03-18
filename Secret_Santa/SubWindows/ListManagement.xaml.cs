@@ -1,4 +1,5 @@
 ﻿using Logic.Data;
+using Logic.Models;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,12 @@ namespace Secret_Santa.SubWindows {
         {
             this.dataFile = dataFile;
             InitializeComponent();
+
+            if (!string.IsNullOrEmpty(this.dataFile.Participants.Name)) {
+                this.txtNameList.Text = this.dataFile.Participants.Name;
+            }
+
+            this.lstParticipants.ItemsSource = this.dataFile.Participants;
         }
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
@@ -35,12 +42,94 @@ namespace Secret_Santa.SubWindows {
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            string nameList = txtNameList.Text;
+            if (string.IsNullOrWhiteSpace(nameList)) {
+                this.InvalidInputGUI(txtNameList, lblErrorName, "Missing name");
+                return;
+            }
+
+            this.dataFile.RenameParticipantsList(nameList);
+            
             if (this.dataFile.Path == null) {
                 var saveDialog = new SaveFileDialog();
+                saveDialog.FileName = nameList;
+                saveDialog.DefaultExt = "txt";
                 saveDialog.ShowDialog();
                 dataFile.Path = saveDialog.FileName;
             }
+
             this.dataFile.SaveData();
+
+            this.ResetTextBox(txtNameList);
+            lblErrorName.Content = "";
+        }
+
+        private void AddPerson_Click(object sender, RoutedEventArgs e)
+        {
+            this.ResetTextBox(txtName);
+            this.ResetTextBox(txtEmail);
+            lblErrorAdd.Content = string.Empty;
+
+            bool valid = true;
+            var name = txtName.Text;
+            if(string.IsNullOrEmpty(name)) {
+                this.InvalidInputGUI(txtName, lblErrorAdd, "Name can not be empty.");
+                valid = false;
+            }
+
+            if(this.dataFile.Participants.Any(p => p.Name == name))
+            {
+                this.InvalidInputGUI(txtName, lblErrorAdd, $"{name} is already registered.");
+                valid = false;
+            }
+
+            var email = txtEmail.Text;
+            if (!FileParser.ValidEmailAddress(email)) {
+                this.InvalidInputGUI(txtEmail, lblErrorAdd, "Invalid e-mail.");
+                valid = false;
+            }
+
+            if(this.dataFile.Participants.Any(p => p.Email == email))
+            {
+                this.InvalidInputGUI(txtEmail, lblErrorAdd, $"{email} is already registered.");
+                valid = false;
+            }
+
+            if (valid) {
+                this.dataFile.AddParticipant(new Participant() {
+                    Name = name,
+                    Email = email
+                });
+                txtEmail.Clear();
+                txtName.Clear();
+            }
+        }
+
+
+        private void InvalidInputGUI(TextBox textBox, Label errorLabel, string errorText)
+        {
+            textBox.Background = Brushes.LightPink;
+            errorLabel.Content += errorText + '\n';
+            textBox.Clear();
+        }
+
+        private void ResetTextBox(TextBox textBox)
+        {
+            textBox.Background = Brushes.White;
+        }
+        
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btwRemove_Click(object sender, RoutedEventArgs e)
+        {
+            var participant = lstParticipants.SelectedItem as Participant;
+            if (participant == null) return;
+
+            this.dataFile.RemoveParticipant(participant);
+            
         }
     }
 }

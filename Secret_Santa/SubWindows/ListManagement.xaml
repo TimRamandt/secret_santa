@@ -5,30 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Secret_Santa.SubWindows"
         mc:Ignorable="d"
-        Title="Secret Santa App (List)" Height="387.479" Width="507.479">
+        Title="Secret Santa App (List)" Height="453.821" Width="507.479">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="230" Margin="10,43,0,0" VerticalAlignment="Top" Width="232">
-            <Border BorderBrush="Black" BorderThickness="1"></Border>
-            <Label Content="Add people" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="53,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
-            <TextBox HorizontalAlignment="Left" Height="25" Margin="53,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
-            <Button Content="Add" HorizontalAlignment="Left" Margin="147,127,0,0" VerticalAlignment="Top" Width="75"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,0,10">
+            </Border>
+            <Label Name="lblErrorAdd" Content="" Margin="9.2,154.2,9.2,22.6" Foreground="Red"/>
+            <Label Content="Add people" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <TextBox Name="txtName" HorizontalAlignment="Left" Height="23" Margin="53,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
+            <TextBox Name="txtEmail" HorizontalAlignment="Left" Height="25" Margin="53,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="169"/>
+            <Button Content="Add" HorizontalAlignment="Left" Margin="147,127,0,0" VerticalAlignment="Top" Width="75" Click="AddPerson_Click"/>
             <Label Content="Name" HorizontalAlignment="Left" Margin="11,44,0,0" VerticalAlignment="Top"/>
             <Label Content="E-mail" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.109"/>
         </Grid>
 
-        <Button Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="205,310,0,0" Height="33" Click="StartGame_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="150,284,0,0" TextWrapping="Wrap" Text="This will start a secret santa session." VerticalAlignment="Top" Width="194" Height="21"/>
         <Grid HorizontalAlignment="Left" Height="230" Margin="252,43,0,0" VerticalAlignment="Top" Width="232">
-            <Border BorderBrush="Black" BorderThickness="1"></Border>
-            <Label Content="Overview" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,0,-68">
+            </Border>
+            <Label Content="Overview" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <ListBox Name="lstParticipants" Margin="10,70,4,-35">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="167,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154"/>
+        <TextBox Name="txtNameList" HorizontalAlignment="Left" Height="23" Margin="167,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="154"/>
         <Label Content="Name of the list:" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="28" Width="108"/>
         <Button HorizontalAlignment="Left" Margin="446,10,0,0" VerticalAlignment="Top" Width="38" Height="30" Background="White" Click="Save_Click">
             <Image Source="pack://application:,,,/Resources/saveIcon.png" />
         </Button>
+        <Label Name="lblErrorName" Content="" HorizontalAlignment="Left" Margin="326,12,0,0" VerticalAlignment="Top" Width="115" Foreground="Red"/>
 
+        <Button Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="205,380,0,0" Height="33" Click="StartGame_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="150,355,0,0" TextWrapping="Wrap" Text="This will start a secret santa session." VerticalAlignment="Top" Width="194" Height="21"/>
+        <Button Name="btwRemove" Content="Remove" HorizontalAlignment="Left" Margin="398,314,0,0" VerticalAlignment="Top" Width="75" Click="btwRemove_Click"/>
+        <TextBox Name="txtSearch" HorizontalAlignment="Left" Height="23" Margin="263,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
+        <Button Name="btnSearch" Content="search" HorizontalAlignment="Left" Margin="398,84,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnSearch_Click"/>
 
 
     </Grid>

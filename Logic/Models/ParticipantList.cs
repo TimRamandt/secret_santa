@@ -1,27 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Logic.Models {
-    public class ParticipantList : List<Participant> {
+    public class ParticipantList : ObservableCollection<Participant> {
         public string Name { get; set; }
-        /*public List<Participant> Participants { get; set; }
-
-        public ParticipantList()
-        {
-            this.Participants = new List<Participant>();
-        }
-
-        public void AddParticipant(Participant participant)
-        {
-            this.Participants.Add(participant);
-        }
-
-        public void RemoveParticipant(Participant participant)
-        {
-            this.Participants.Remove(participant);
-        }*/
     }
 }
