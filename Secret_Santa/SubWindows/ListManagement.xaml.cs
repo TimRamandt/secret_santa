@@ -37,21 +37,26 @@ namespace Secret_Santa.SubWindows {
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            var nameList = txtNameList.Text;
+            string nameList = txtNameList.Text;
             if (string.IsNullOrWhiteSpace(nameList)) {
                 this.InvalidInputGUI(txtNameList, lblErrorName, "Missing name");
                 return;
             }
 
-            this.ResetTextBox(txtNameList);
-            lblErrorName.Content = "";
-
+            this.dataFile.RenameParticipantsList(nameList);
+            
             if (this.dataFile.Path == null) {
                 var saveDialog = new SaveFileDialog();
+                saveDialog.FileName = nameList;
+                saveDialog.DefaultExt = "txt";
                 saveDialog.ShowDialog();
                 dataFile.Path = saveDialog.FileName;
             }
+
             this.dataFile.SaveData();
+
+            this.ResetTextBox(txtNameList);
+            lblErrorName.Content = "";
         }
 
         private void AddPerson_Click(object sender, RoutedEventArgs e)
